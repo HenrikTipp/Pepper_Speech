@@ -27,7 +27,9 @@ should now return
 /home/USERNAME/naoqi/pynaoqi-python2.7-2.5.7.1-linux64/lib/python2.7/site-packages:$PYTHONPATH
 
 you can check the installation by using 
+
 $python2
+
 >>> from naoqi import ALProxy
 
 if this causes the importerror
