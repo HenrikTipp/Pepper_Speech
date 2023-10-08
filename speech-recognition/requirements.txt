@@ -1,0 +1,5 @@
+whisper = 1.1.10
+torch = 2.0.1
+pandas = 2.1.0
+transformers=4.33.0
+tensorflow=2.13.0

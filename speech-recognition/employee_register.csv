@@ -1,0 +1,5 @@
+id,name,title,customized_bool,time_preference,last_interaction,language,employee
+0,otto,administrator,True,8,2023-07-26 14:53:38.650187,german,True
+1,Hendrick.,_,True,1,2023-09-07 14:31:02.426079,English.,True
+2,paul,_,True,0,2023-07-26 16:24:23.738815,german,True
+3,nicolas,_,False,1,2023-07-26 14:53:38.650187,english,True
