@@ -63,3 +63,7 @@ whisper needs to be installed using
 `pip install git+https://github.com/openai/whisper.git `
 
 `sudo apt update && sudo apt install ffmpeg`
+
+
+
+To run the code execute papper_speech.py
