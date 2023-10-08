@@ -9,12 +9,13 @@ flatten = lambda l: [item for sublist in l for item in sublist]
 
 class Language_Model():
     def __init__(self):
-        return #LAPTOP TEST!! DELETE THIS LINE!
+        #Loads tokenizer and model.
         self.tokenizer = GPT2Tokenizer.from_pretrained("af1tang/personaGPT", padding_side='left')
         self.model = GPT2LMHeadModel.from_pretrained("af1tang/personaGPT")
         if torch.cuda.is_available():
             self.model = self.model.cuda()
-                
+
+        #Loads the persona for the language model, how it should behave.
         self.personas = []
         f = open('facts.txt','r')
         for l in f:
@@ -48,6 +49,7 @@ class Language_Model():
                 print("Pepper: "+msg)
                 print()
 
+    #Generates the odel response based on the dialogue history.
     def generate_next(self, bot_input_ids, do_sample=True, top_k=10, top_p=.92,
                     max_length=1000):
         full_msg = self.model.generate(bot_input_ids, do_sample=True,
@@ -56,11 +58,13 @@ class Language_Model():
         msg = self.to_data(full_msg.detach()[0])[bot_input_ids.shape[-1]:]
         return msg
 
+    #Adds user reply to the dialogue history and then generates the response.
     def generate_response(self, prompt):
-        return "Language model OFFLINE"#LAPTOP TEST DELETE THIS LINE
+        #User text is tokenized.
         user_inp = self.tokenizer.encode(prompt + self.tokenizer.eos_token)
         self.dialogue_history.append(user_inp)
-            
+
+        #Creates a list of ids for tokens that are the persona and dialogue history.
         bot_input_ids = self.to_var([self.personas + flatten(self.dialogue_history)]).long()
         msg = self.generate_next(bot_input_ids)
         self.dialogue_history.append(msg)
