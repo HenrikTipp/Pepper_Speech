@@ -18,7 +18,6 @@ class Speech_Recognition:
     #Initiaalizes a whisper speech recognition model for english audio. filename points to the location of the audio data, should be speech.wav.
     def __init__(self, filename):
         self.filename = filename
-        self.process = None
         model = "base.en"
         self.audio_model = whisper.load_model(model)
 
